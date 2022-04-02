@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>HMS - Django</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&family=Permanent+Marker&family=Raleway:ital@1&family=Work+Sans:ital,wght@0,500;1,900&display=swap');
+    </style>
+  <style type="text/css">
+    body{
+      /* background-image: url("https://spo.iitk.ac.in/preparation/images/1.jpg");
+      background-size: cover;
+      background-repeat: no-repeat; */
+      background-color: rgb(255, 253, 208);
+      font-family: 'Work Sans', sans-serif;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #858e9b);
+      color: black;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      appearance: button;
+  backface-visibility: hidden;
+  background-color: rgb(121, 85, 72);
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  margin: 12px 0 0;
+  outline: none;
+  overflow: hidden;
+  /* padding: 0 25px; */
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all .2s,box-shadow .08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  padding:1%;
+    }
+  </style>
+
+</head>
+
+
+<body style="background-color:rgb(255, 253, 208)">
+  {% include "hospital/navbar.html" %}
+  <br>
+  <br>
+  <br>
+  <br>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container register-form">
+      <div class="form">
+        <div class="note">
+          <p>DOCTOR SIGNUP</p>
+        </div>
+
+        <div class="form-content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+              </div>
+              <div class="form-group">
+                {% render_field userForm.username class="form-control" placeholder="Username" %}
+              </div>
+              <div class="form-group">
+                {% render_field doctorForm.department class="form-control" placeholder="Department" %}
+              </div>
+              <div class="form-group">
+                {% render_field doctorForm.address class="form-control" placeholder="Address" %}
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+              </div>
+              <div class="form-group">
+                {% render_field userForm.password class="form-control" placeholder="Password" %}
+              </div>
+              <div class="form-group">
+                {% render_field doctorForm.mobile class="form-control"  placeholder="Contact" %}
+              </div>
+              <div class="form-group">
+                {% render_field doctorForm.profile_pic required="required" class="form-control" placeholder="Profile Picture" %}
+              </div>
+
+            </div>
+          </div>
+          <center>
+          <button type="submit" class="btnSubmit">Register</button>
+        </center>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  {% include "hospital/footer.html" %}
+</body>
+
+
+</html>
